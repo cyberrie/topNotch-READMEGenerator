@@ -6,12 +6,12 @@ import fs from "fs/promises";
 
 // store markdownInfo questions in a variable
 // use async/ await for prompt
-let { title } = await inquirer.prompt([
+let { title, description, installation } = await inquirer.prompt([
   /* Pass your questions in here */
   {
     type: "input",
     name: "title",
-    message: "What is the title of your repository? (Required)",
+    message: "What is the title of your project?",
     //validate to make sure there is a value there
     validate: (nameInput) => {
       if (nameInput) {
@@ -22,16 +22,43 @@ let { title } = await inquirer.prompt([
       }
     },
   },
+  {
+    type: "input",
+    name: "description",
+    message: "A brief description of what this project does and who it's for:",
+    //validate to make sure there is a value there
+  },
+  // confirm if there is an installation process
+  {
+    // y/n
+    type: "confirm",
+    name: "confirmInstallation",
+    message: "Is there an installation process?",
+  },
+
+  {
+    type: "input",
+    name: "installation",
+    message: "Please indicate installation instructions:",
+    //  if the person selects a installation process allow them to input steps
+    when: ({ confirmInstallation }) => {
+      if (confirmInstallation) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 ]);
 
 let readmeMD = `# ${title}
 
 ## Table of contents
 
-- [Overview](#overview)
-- [Installation](#instalation)
+- [Description](#description)
+- [Installation](#installation)
 - [Usage](#usage)
-- [Link Demo](#link-demo)
+- [Demo](#demo)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
 - [Directions for future development](#directions-for-future-development)
@@ -40,9 +67,11 @@ let readmeMD = `# ${title}
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
 
-## Overview
+## Description
+${description}
 
 ## Installation
+${installation}
 
 ## Usage
 
