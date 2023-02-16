@@ -1,39 +1,67 @@
 import inquirer from "inquirer";
 import fs from "fs/promises";
 
-// use this for the challenge if you can
-let { first_name, last_name } = await inquirer.prompt([
+// create a command line app that accepts the user input
+// create questions to generate professional readme.md
+
+// store markdownInfo questions in a variable
+// use async/ await for prompt
+let { title } = await inquirer.prompt([
   /* Pass your questions in here */
   {
     type: "input",
-    name: "first_name",
-    message: "What's your first name",
-  },
-  {
-    type: "input",
-    name: "last_name",
-    message: "What's your last name",
-    default() {
-      return "Doe";
+    name: "title",
+    message: "What is the title of your repository? (Required)",
+    //validate to make sure there is a value there
+    validate: (nameInput) => {
+      if (nameInput) {
+        return true;
+      } else {
+        console.log("Please enter your repository title.");
+        return false;
+      }
     },
   },
 ]);
 
-let htmlDocument = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+let readmeMD = `# ${title}
 
-<h1>${first_name}</h1>  
-  
-</body>
-</html>`;
+## Table of contents
 
-await fs.writeFile("index.html", htmlDocument);
+- [Overview](#overview)
+- [Installation](#instalation)
+- [Usage](#usage)
+- [Link Demo](#link-demo)
+- [Built with](#built-with)
+- [What I learned](#what-i-learned)
+- [Directions for future development](#directions-for-future-development)
+- [Tests](#tests)
+- [License](#license)
+- [Authors](#authors)
+- [Acknowledgements](#acknowledgements)
 
-console.log(first_name, last_name);
+## Overview
+
+## Installation
+
+## Usage
+
+## Link Demo
+
+## Built with
+
+## What I learned
+
+## Directions for future development
+
+## Tests
+
+## License
+
+## Authors
+
+## Acknowledgements
+
+`;
+
+await fs.writeFile("READMEtest.md", readmeMD);
