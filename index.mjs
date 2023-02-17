@@ -22,7 +22,7 @@ let {
   contributing,
   usage,
   tests,
-  checkAcknowledgements,
+  acknowledgements,
 } = await inquirer.prompt([
   /* Pass your questions in here */
   {
