@@ -12,7 +12,6 @@ let {
   installation,
   demo,
   builtWith,
-  learnings,
   roadmap,
   authors,
   github,
@@ -81,6 +80,11 @@ let {
     message: "Please indicate any directions for the application use:",
   },
   {
+    type: "input",
+    name: "tests",
+    message: "To run tests, run the followig command:",
+  },
+  {
     type: "confirm",
     name: "checkDemo",
     message:
@@ -102,12 +106,7 @@ let {
     message:
       "Please list the technologies, frameworks, libraries and any other tools that were used to develop the project?",
   },
-  {
-    type: "input",
-    name: "learnings",
-    message:
-      "What are the three most important things you learned while working on this project?",
-  },
+
   {
     type: "confirm",
     name: "checkRoadmap",
@@ -224,14 +223,13 @@ let {
   },
 ]);
 
-// Functions
+////////////// Functions  //////////////////
 // format installation output
 function formatCode(value) {
   return "```\n" + value + "\n```";
 }
 
 // Generate license badge function
-
 function generateBadge(license) {
   let badgeUrl;
 
@@ -260,6 +258,22 @@ function generateBadge(license) {
   return badgeUrl;
 }
 
+// function to render user input as a list
+function renderInputAsList(input) {
+  // user input comma separated
+  const items = input.split(",");
+
+  const listItems = items
+    .map((item) => {
+      // create list item for each input item using Markdown syntax
+      return `* ${item.trim()}`;
+    })
+    // join all list items together into a string, separated by newlines
+    .join("\n");
+
+  return listItems;
+}
+// readme.md
 let readmeMD = `# ${title}
 
 ${generateBadge(license)}
@@ -272,7 +286,6 @@ ${generateBadge(license)}
 - [Tests](#tests)
 - [Demo](#demo)
 - [Built with](#built-with)
-- [What I learned](#what-i-learned)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -311,11 +324,7 @@ ${formatCode(tests)}
 
 ## Built with
 
-- ${builtWith}
-
-## What I learned
-
-- ${learnings}
+${renderInputAsList(builtWith)}
 
 ## Roadmap
 
@@ -353,3 +362,6 @@ ${email}
 `;
 
 await fs.writeFile("READMEtest.md", readmeMD);
+
+// Message to the user when it ends
+console.log("Thank you for your input, your README.md is now generated.");

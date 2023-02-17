@@ -1,15 +1,17 @@
-# test
+# re
 
-[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of contents
 
 - [Description](#description)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
 - [Demo](#demo)
 - [Built with](#built-with)
-- [What I learned](#what-i-learned)
 - [Roadmap](#roadmap)
+- [Contributing](#contributing)
 - [License](#license)
 - [Authors](#authors)
 - [GitHub](#github)
@@ -17,7 +19,7 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Description
-- test
+- re
 
 ## Installation
 
@@ -25,39 +27,56 @@
 
 No installation process provided.
 
+## Usage
+
+- gr
+
+## Tests
+
+- re includes a suite of automated tests to ensure that the application works as expected. To run the tests, use the following command:
+
+```
+npm run tests
+```
+
 ## Demo
 
-![test](undefined)
+![re](undefined)
 
 ## Built with
 
-- tes test test
-
-## What I learned
-
-- test test test
+- * HTML
+* CSS
+* JS
+* Bootstrap
+* jQuery
+* 123
 
 ## Roadmap
 
 - Currently, there are no directions for future development.
 
+## Contributing
+
+hrhehe
+
 ## License
 
-[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+- re is released under:  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Authors
 
-- 123
+- werwr
 
 ## GitHub 
 
-- [123](123)
+- [gwe](gwe)
 
 ## Email
 
-123
+a@live.com
 
-- 123
+- fef
 
 ## Acknowledgements
 
