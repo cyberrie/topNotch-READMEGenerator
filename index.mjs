@@ -22,6 +22,7 @@ let {
   contributing,
   usage,
   tests,
+  checkAcknowledgements,
 } = await inquirer.prompt([
   /* Pass your questions in here */
   {
@@ -248,8 +249,25 @@ let {
       if (emailInput) {
         return true;
       } else {
-        console.log("This is required");
+        console.log("This is required.");
         return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "checkAcknowledgements",
+    message: "Would you like to add acknowledgements?",
+  },
+  {
+    type: "input",
+    name: "acknowledgements",
+    message: "Please write acknowledgements",
+    when: ({ checkAcknowledgements }) => {
+      if (checkAcknowledgements) {
+        return true;
+      } else {
+        return "No acknowledgements";
       }
     },
   },
@@ -305,6 +323,7 @@ function renderInputAsList(input) {
 
   return listItems;
 }
+
 // readme.md
 let readmeMd = `# ${title}
 
@@ -392,6 +411,8 @@ ${renderInputAsList(authors)}
 ${email}
 
 ## Acknowledgements
+
+${acknowledgements}
 
 `;
 
