@@ -78,11 +78,27 @@ let {
     type: "input",
     name: "usage",
     message: "Please indicate any directions for the application use:",
+    validate: (descriptionInput) => {
+      if (descriptionInput) {
+        return true;
+      } else {
+        console.log("Please specify app usage.");
+        return false;
+      }
+    },
   },
   {
     type: "input",
     name: "tests",
-    message: "To run tests, run the followig command:",
+    message: "To run tests, run the following command:",
+    validate: (testsInput) => {
+      if (testsInput) {
+        return true;
+      } else {
+        console.log("Please indicate how to run tests.");
+        return false;
+      }
+    },
   },
   {
     type: "confirm",
@@ -104,7 +120,15 @@ let {
     type: "input",
     name: "builtWith",
     message:
-      "Please list the technologies, frameworks, libraries and any other tools that were used to develop the project?",
+      "Please list the technologies, frameworks, libraries and any other tools that were used to develop the project:",
+    validate: (builtInput) => {
+      if (builtInput) {
+        return true;
+      } else {
+        console.log("Please specify what was this app built with.");
+        return false;
+      }
+    },
   },
 
   {
@@ -131,6 +155,14 @@ let {
     type: "input",
     name: "contributing",
     message: "Please indicate directions for contributions:",
+    validate: (contributingInput) => {
+      if (contributingInput) {
+        return true;
+      } else {
+        console.log("Please indicate directions for contributions.");
+        return false;
+      }
+    },
   },
   {
     type: "list",
@@ -156,7 +188,7 @@ let {
   {
     type: "input",
     name: "authors",
-    message: "Please list the project authors",
+    message: "Please list the project authors:",
     validate: (authorsInput) => {
       if (authorsInput) {
         return true;
@@ -341,7 +373,9 @@ ${contributing}
 
 ## License
 
-- ${title} is released under:  ${generateBadge(license)}
+- ${title} is released under:  
+
+${generateBadge(license)}
 
 ## Authors
 
@@ -353,9 +387,9 @@ ${renderInputAsList(authors)}
 
 ## Email
 
-${email}
-
 - ${contact}
+
+${email}
 
 ## Acknowledgements
 

@@ -1,4 +1,4 @@
-# re
+# test
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -19,38 +19,41 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Description
-- re
+- test
 
 ## Installation
 
 - Copy repository SSH key and clone the existing repository with the following command:
 
-No installation process provided.
+```
+git clone <SSH key>
+```
 
 ## Usage
 
-- gr
+- 
 
 ## Tests
 
-- re includes a suite of automated tests to ensure that the application works as expected. To run the tests, use the following command:
+- test includes a suite of automated tests to ensure that the application works as expected. To run the tests, use the following command:
 
 ```
-npm run tests
+npm run test
 ```
 
 ## Demo
 
-![re](undefined)
+![test](./assets/moodmix-demo.gif)
 
 ## Built with
 
-- * HTML
-* CSS
-* JS
-* Bootstrap
-* jQuery
-* 123
+* html
+* css
+* js
+* jquery
+* 1
+* 2
+* 3
 
 ## Roadmap
 
@@ -58,25 +61,29 @@ npm run tests
 
 ## Contributing
 
-hrhehe
+fe
 
 ## License
 
-- re is released under:  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+- test is released under:  
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Authors
 
-- werwr
+* ede
+* de
+* de 
 
 ## GitHub 
 
-- [gwe](gwe)
+- [de](de)
 
 ## Email
 
-a@live.com
+- fe
 
-- fef
+de@live.com
 
 ## Acknowledgements
 
