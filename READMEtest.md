@@ -1,10 +1,9 @@
-# test
+# MoodMix
 
 ## Table of contents
 
 - [Description](#description)
-- [Installation](#instalation)
-- [Usage](#usage)
+- [Installation](#installation)
 - [Demo](#demo)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
@@ -15,15 +14,16 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Description
-testing
+An app to generate food and cocktail recipes based on mood
 
 ## Installation
+undefined
 
-## Usage
-
-## Link Demo
+## Demo
+![MoodMix](./moodmix-demo.gif)
 
 ## Built with
+HTML, CSS, JS...
 
 ## What I learned
 

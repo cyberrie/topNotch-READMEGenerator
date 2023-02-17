@@ -6,50 +6,72 @@ import fs from "fs/promises";
 
 // store markdownInfo questions in a variable
 // use async/ await for prompt
-let { title, description, installation } = await inquirer.prompt([
-  /* Pass your questions in here */
-  {
-    type: "input",
-    name: "title",
-    message: "What is the title of your project?",
-    //validate to make sure there is a value there
-    validate: (nameInput) => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log("Please enter your repository title.");
-        return false;
-      }
+let { title, description, installation, demo, builtWith } =
+  await inquirer.prompt([
+    /* Pass your questions in here */
+    {
+      type: "input",
+      name: "title",
+      message: "What is the title of your project?",
+      //validate to make sure there is a value there
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please enter your repository title.");
+          return false;
+        }
+      },
     },
-  },
-  {
-    type: "input",
-    name: "description",
-    message: "A brief description of what this project does and who it's for:",
-    //validate to make sure there is a value there
-  },
-  // confirm if there is an installation process
-  {
-    // y/n
-    type: "confirm",
-    name: "confirmInstallation",
-    message: "Is there an installation process?",
-  },
+    {
+      type: "input",
+      name: "description",
+      message:
+        "A brief description of what this project does and who it's for:",
+      //validate to make sure there is a value there
+    },
+    // confirm if there is an installation process
+    {
+      // y/n
+      type: "confirm",
+      name: "confirmInstallation",
+      message: "Is there an installation process?",
+    },
 
-  {
-    type: "input",
-    name: "installation",
-    message: "Please indicate installation instructions:",
-    //  if the person selects a installation process allow them to input steps
-    when: ({ confirmInstallation }) => {
-      if (confirmInstallation) {
-        return true;
-      } else {
-        return false;
-      }
+    {
+      type: "input",
+      name: "installation",
+      message: "Please indicate installation instructions:",
+      //  if the person selects a installation process allow them to input steps
+      when: ({ confirmInstallation }) => {
+        if (confirmInstallation) {
+          return true;
+        }
+      },
     },
-  },
-]);
+    {
+      type: "confirm",
+      name: "checkDemo",
+      message:
+        "Would you like to provide a demo/ screenshot of your application? It is recommended to add this for usage purposes.",
+    },
+    {
+      type: "input",
+      name: "demo",
+      message: "Please indicate a pathway to your demo:",
+      when: ({ checkDemo }) => {
+        if (checkDemo) {
+          return true;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "builtWith",
+      message:
+        "Please list the technologies, frameworks, libraries and any other tools that were used to develop the project?",
+    },
+  ]);
 
 let readmeMD = `# ${title}
 
@@ -57,7 +79,6 @@ let readmeMD = `# ${title}
 
 - [Description](#description)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Demo](#demo)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
@@ -73,11 +94,11 @@ ${description}
 ## Installation
 ${installation}
 
-## Usage
-
-## Link Demo
+## Demo
+![${title}](${demo})
 
 ## Built with
+${builtWith}
 
 ## What I learned
 
