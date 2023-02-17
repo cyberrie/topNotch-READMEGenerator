@@ -1,4 +1,4 @@
-# MoodMix
+# ded
 
 ## Table of contents
 
@@ -7,36 +7,31 @@
 - [Demo](#demo)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
-- [Directions for future development](#directions-for-future-development)
-- [Tests](#tests)
+- [Roadmap](#roadmap)
 - [License](#license)
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
 
 ## Description
-An app to generate food and cocktail recipes based on your mood.
+de
 
 ## Installation
 
 - Copy repository SSH key and clone the existing repository with the following command:
 
-
-```
-git clone <SSH key>
-```
-
+No installation process provided.
 
 ## Demo
-![MoodMix](./moodmix-demo.gif)
+![ded](undefined)
 
 ## Built with
-html, css, js...
+dwe
 
 ## What I learned
+vf
 
-## Directions for future development
-
-## Tests
+## Roadmap
+Currently, there are no directions for future development
 
 ## License
 

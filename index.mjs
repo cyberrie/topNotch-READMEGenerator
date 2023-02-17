@@ -6,7 +6,7 @@ import fs from "fs/promises";
 
 // store markdownInfo questions in a variable
 // use async/ await for prompt
-let { title, description, installation, demo, builtWith } =
+let { title, description, installation, demo, builtWith, learnings, roadmap } =
   await inquirer.prompt([
     /* Pass your questions in here */
     {
@@ -14,8 +14,8 @@ let { title, description, installation, demo, builtWith } =
       name: "title",
       message: "What is the title of your project?",
       //validate to make sure there is a value there
-      validate: (nameInput) => {
-        if (nameInput) {
+      validate: (titleInput) => {
+        if (titleInput) {
           return true;
         } else {
           console.log("Please enter your repository title.");
@@ -29,6 +29,14 @@ let { title, description, installation, demo, builtWith } =
       message:
         "A brief description of what this project does and who it's for:",
       //validate to make sure there is a value there
+      validate: (descriptionInput) => {
+        if (descriptionInput) {
+          return true;
+        } else {
+          console.log("Please enter a description of the repository.");
+          return false;
+        }
+      },
     },
     // confirm if there is an installation process
     {
@@ -47,6 +55,8 @@ let { title, description, installation, demo, builtWith } =
       when: ({ confirmInstallation }) => {
         if (confirmInstallation) {
           return true;
+        } else {
+          return false;
         }
       },
     },
@@ -72,9 +82,35 @@ let { title, description, installation, demo, builtWith } =
       message:
         "Please list the technologies, frameworks, libraries and any other tools that were used to develop the project?",
     },
+    {
+      type: "input",
+      name: "learnings",
+      message:
+        "What are the three most important things you learned while working on this project?",
+    },
+    {
+      type: "confirm",
+      name: "checkRoadmap",
+      message: "Any directions for future development?",
+    },
+    {
+      type: "input",
+      name: "roadmap",
+      message: "Please indicate directions for future development:",
+      when: ({ checkRoadmap }) => {
+        if (checkRoadmap) {
+          return true;
+        } else {
+          console.log(
+            "Currently, there are no directions for future development"
+          );
+          return false;
+        }
+      },
+    },
   ]);
 
-// format installation
+// format installation output
 function formatInstallation(installation) {
   return "```\n" + installation + "\n```";
 }
@@ -88,8 +124,7 @@ let readmeMD = `# ${title}
 - [Demo](#demo)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
-- [Directions for future development](#directions-for-future-development)
-- [Tests](#tests)
+- [Roadmap](#roadmap)
 - [License](#license)
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
@@ -104,24 +139,38 @@ ${description}
 ${
   installation
     ? formatInstallation(installation)
-    : "No installation process provided."
+    : // if no installation, default output
+      "No installation process provided."
 }
 
 ## Demo
+
 ![${title}](${demo})
 
 ## Built with
+
 ${builtWith}
 
 ## What I learned
 
-## Directions for future development
+${learnings}
 
-## Tests
+## Roadmap
+
+${
+  roadmap
+    ? roadmap
+    : // in case the answer is No, default output
+      "Currently, there are no directions for future development."
+}
 
 ## License
 
 ## Authors
+
+## GitHub 
+
+## Email
 
 ## Acknowledgements
 
