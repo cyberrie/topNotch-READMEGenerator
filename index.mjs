@@ -345,7 +345,7 @@ ${contributing}
 
 ## Authors
 
-- ${authors}
+${renderInputAsList(authors)} 
 
 ## GitHub 
 
