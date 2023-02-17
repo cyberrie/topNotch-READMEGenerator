@@ -20,7 +20,9 @@ let {
   email,
   contact,
   license,
-  badgeUrl,
+  contributing,
+  usage,
+  tests,
 } = await inquirer.prompt([
   /* Pass your questions in here */
   {
@@ -74,6 +76,11 @@ let {
     },
   },
   {
+    type: "input",
+    name: "usage",
+    message: "Please indicate any directions for the application use:",
+  },
+  {
     type: "confirm",
     name: "checkDemo",
     message:
@@ -120,6 +127,11 @@ let {
         return false;
       }
     },
+  },
+  {
+    type: "input",
+    name: "contributing",
+    message: "Please indicate directions for contributions:",
   },
   {
     type: "list",
@@ -185,13 +197,15 @@ let {
     type: "input",
     name: "email",
     message: "Please enter your email address:",
-    validate: (emailInput) => {
-      if (emailInput) {
+    validate: function (value) {
+      //This function validates that the users input is an email address.
+      const pass = value.match(
+        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ // email address regular expression
+      );
+      if (pass) {
         return true;
-      } else {
-        console.log("Please enter your email address.");
-        return false;
       }
+      return "Please enter a valid email address"; //This message is printed if a valid email is not provided.
     },
   },
   {
@@ -212,8 +226,8 @@ let {
 
 // Functions
 // format installation output
-function formatInstallation(installation) {
-  return "```\n" + installation + "\n```";
+function formatCode(value) {
+  return "```\n" + value + "\n```";
 }
 
 // Generate license badge function
@@ -254,10 +268,13 @@ ${generateBadge(license)}
 
 - [Description](#description)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
 - [Demo](#demo)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
 - [Roadmap](#roadmap)
+- [Contributing](#contributing)
 - [License](#license)
 - [Authors](#authors)
 - [GitHub](#github)
@@ -273,10 +290,20 @@ ${generateBadge(license)}
 
 ${
   installation
-    ? formatInstallation(installation)
+    ? formatCode(installation)
     : // if no installation, default output
       "No installation process provided."
 }
+
+## Usage
+
+- ${usage}
+
+## Tests
+
+- ${title} includes a suite of automated tests to ensure that the application works as expected. To run the tests, use the following command:
+
+${formatCode(tests)}
 
 ## Demo
 
@@ -299,9 +326,13 @@ ${
       "Currently, there are no directions for future development."
 }
 
+## Contributing
+
+${contributing}
+
 ## License
 
-${generateBadge(license)}
+- ${title} is released under:  ${generateBadge(license)}
 
 ## Authors
 
