@@ -306,7 +306,7 @@ function renderInputAsList(input) {
   return listItems;
 }
 // readme.md
-let readmeMD = `# ${title}
+let readmeMd = `# ${title}
 
 ${generateBadge(license)}
 
@@ -395,7 +395,7 @@ ${email}
 
 `;
 
-await fs.writeFile("READMEtest.md", readmeMD);
+await fs.writeFile("yourREADME.md", readmeMd);
 
 // Message to the user when it ends
 console.log("Thank you for your input, your README.md is now generated.");
