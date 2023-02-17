@@ -1,4 +1,6 @@
-# ded
+# test
+
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
 ## Table of contents
 
@@ -10,11 +12,12 @@
 - [Roadmap](#roadmap)
 - [License](#license)
 - [Authors](#authors)
+- [GitHub](#github)
+- [Email](#email)
 - [Acknowledgements](#acknowledgements)
 
 ## Description
-
-de
+- test
 
 ## Installation
 
@@ -24,22 +27,37 @@ No installation process provided.
 
 ## Demo
 
-![ded](undefined)
+![test](undefined)
 
 ## Built with
 
-dwe
+- tes test test
 
 ## What I learned
 
-vf
+- test test test
 
 ## Roadmap
 
-Currently, there are no directions for future development
+- Currently, there are no directions for future development.
 
 ## License
 
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+
 ## Authors
 
+- 123
+
+## GitHub 
+
+- [123](123)
+
+## Email
+
+123
+
+- 123
+
 ## Acknowledgements
+

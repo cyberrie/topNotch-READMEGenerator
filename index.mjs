@@ -19,6 +19,8 @@ let {
   githubURL,
   email,
   contact,
+  license,
+  badgeUrl,
 } = await inquirer.prompt([
   /* Pass your questions in here */
   {
@@ -120,6 +122,27 @@ let {
     },
   },
   {
+    type: "list",
+    name: "license",
+    message: "Please choose a license",
+    choices: [
+      "MIT License",
+      "Mozzilla Public License 2.0",
+      "Open Database License (ODbl)",
+      "The Unilicense",
+      "Boost Software License 1.0",
+      "Apache 2.0 License",
+    ],
+    validate: (licenseInput) => {
+      if (licenseInput) {
+        return true;
+      } else {
+        console.log("Please select a license.");
+        return false;
+      }
+    },
+  },
+  {
     type: "input",
     name: "authors",
     message: "Please list the project authors",
@@ -187,12 +210,45 @@ let {
   },
 ]);
 
+// Functions
 // format installation output
 function formatInstallation(installation) {
   return "```\n" + installation + "\n```";
 }
 
+// Generate license badge function
+
+function generateBadge(license) {
+  let badgeUrl;
+
+  switch (license) {
+    case "MIT License":
+      badgeUrl = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+      break;
+    case "Mozzilla Public License 2.0":
+      badgeUrl = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
+      break;
+    case "Open Database License (ODbl)":
+      badgeUrl = `[![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)`;
+      break;
+    case "The Unilicense":
+      badgeUrl = `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`;
+      break;
+    case "Boost Software License 1.0":
+      badgeUrl = `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`;
+      break;
+    case "Apache 2.0 License":
+      badgeUrl = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+      break;
+    default:
+      badgeUrl = `[![License](https://img.shields.io/badge/License-Unknown-lightgrey.svg)](https://opensource.org/License-Unknown-lightgrey)`;
+  }
+  return badgeUrl;
+}
+
 let readmeMD = `# ${title}
+
+${generateBadge(license)}
 
 ## Table of contents
 
@@ -244,6 +300,8 @@ ${
 }
 
 ## License
+
+${generateBadge(license)}
 
 ## Authors
 
