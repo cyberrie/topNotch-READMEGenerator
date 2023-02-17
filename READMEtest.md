@@ -14,16 +14,23 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Description
-An app to generate food and cocktail recipes based on mood
+An app to generate food and cocktail recipes based on your mood.
 
 ## Installation
-undefined
+
+- Copy repository SSH key and clone the existing repository with the following command:
+
+
+```
+git clone <SSH key>
+```
+
 
 ## Demo
 ![MoodMix](./moodmix-demo.gif)
 
 ## Built with
-HTML, CSS, JS...
+html, css, js...
 
 ## What I learned
 

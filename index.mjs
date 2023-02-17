@@ -41,7 +41,8 @@ let { title, description, installation, demo, builtWith } =
     {
       type: "input",
       name: "installation",
-      message: "Please indicate installation instructions:",
+      message:
+        "Copy repository SSH key and clone the existing repository with the following command:",
       //  if the person selects a installation process allow them to input steps
       when: ({ confirmInstallation }) => {
         if (confirmInstallation) {
@@ -73,6 +74,11 @@ let { title, description, installation, demo, builtWith } =
     },
   ]);
 
+// format installation
+function formatInstallation(installation) {
+  return "```\n" + installation + "\n```";
+}
+
 let readmeMD = `# ${title}
 
 ## Table of contents
@@ -92,7 +98,14 @@ let readmeMD = `# ${title}
 ${description}
 
 ## Installation
-${installation}
+
+- Copy repository SSH key and clone the existing repository with the following command:
+
+${
+  installation
+    ? formatInstallation(installation)
+    : "No installation process provided."
+}
 
 ## Demo
 ![${title}](${demo})
