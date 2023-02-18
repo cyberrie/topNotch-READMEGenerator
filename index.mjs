@@ -334,14 +334,14 @@ ${generateBadge(license)}
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Tests](#tests)
 - [Demo](#demo)
 - [Built with](#built-with)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
+- [Tests](#tests)
 - [License](#license)
 - [Authors](#authors)
-- [Questions(#questions)
+- [Questions](#questions)
 - [Acknowledgements](#acknowledgements)
 
 ## Description
@@ -361,12 +361,6 @@ ${
 ## Usage
 
 - ${usage}
-
-## Tests
-
-- ${title} includes a suite of automated tests to ensure that the application works as expected. To run the tests, use the following command:
-
-${formatCode(tests)}
 
 ## Demo
 
@@ -389,6 +383,12 @@ ${renderInputAsList(builtWith)}
 
 ${contributing}
 
+## Tests
+
+- ${title} includes a suite of automated tests to ensure that the application works as expected. To run the tests, use the following command:
+
+${formatCode(tests)}
+
 ## License
 
 - ${title} is released under:  
@@ -405,7 +405,7 @@ ${renderInputAsList(authors)}
 
 - ${contact}
 
-${email}
+    - ${email}
 
 ## Acknowledgements
 
@@ -416,4 +416,4 @@ ${acknowledgements}
 await fs.writeFile("yourREADME.md", readmeMd);
 
 // Message to the user when it ends
-console.log("Thank you for your input, your README.md is now generated.");
+console.log("Thank you for your input, yourREADME.md has now been generated.");
