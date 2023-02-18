@@ -330,15 +330,6 @@ ${
 
 ${renderInputAsList(builtWith)}
 
-## Roadmap
-
-- ${
-  roadmap
-    ? roadmap
-    : // in case the answer is No, default output
-      "Currently, there are no directions for future development."
-}
-
 ## Contributing
 
 ${contributing}
