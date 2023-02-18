@@ -233,11 +233,6 @@ let {
       }
     },
   },
-  {
-    type: "confirm",
-    name: "checkAcknowledgements",
-    message: "Would you like to add acknowledgements?",
-  },
 ]);
 
 ////////////// Functions  //////////////////
