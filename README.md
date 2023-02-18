@@ -57,9 +57,9 @@ node index.js
 
 ## Application Demo
 
-The following animation demonstrates the application functionality:
+Open the following link to view App Demo:
 
-![README Generator]()
+[README Generator](https://drive.google.com/file/d/1OpsiXUWaySW09mpjWEswFnux-lFsKh9Y/view?usp=sharing)
 
 ## Built with...
 
