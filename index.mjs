@@ -12,7 +12,6 @@ let {
   installation,
   demo,
   builtWith,
-  roadmap,
   authors,
   github,
   githubURL,
@@ -88,19 +87,7 @@ let {
       }
     },
   },
-  {
-    type: "input",
-    name: "tests",
-    message: "To run tests, run the following command:",
-    validate: (testsInput) => {
-      if (testsInput) {
-        return true;
-      } else {
-        console.log("Please indicate how to run tests.");
-        return false;
-      }
-    },
-  },
+
   {
     type: "confirm",
     name: "checkDemo",
@@ -131,27 +118,6 @@ let {
       }
     },
   },
-
-  {
-    type: "confirm",
-    name: "checkRoadmap",
-    message: "Any directions for future development?",
-  },
-  {
-    type: "input",
-    name: "roadmap",
-    message: "Please indicate directions for future development:",
-    when: ({ checkRoadmap }) => {
-      if (checkRoadmap) {
-        return true;
-      } else {
-        console.log(
-          "Currently, there are no directions for future development"
-        );
-        return false;
-      }
-    },
-  },
   {
     type: "input",
     name: "contributing",
@@ -161,6 +127,19 @@ let {
         return true;
       } else {
         console.log("Please indicate directions for contributions.");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "tests",
+    message: "To run tests, run the following command:",
+    validate: (testsInput) => {
+      if (testsInput) {
+        return true;
+      } else {
+        console.log("Please indicate how to run tests.");
         return false;
       }
     },
@@ -259,18 +238,6 @@ let {
     name: "checkAcknowledgements",
     message: "Would you like to add acknowledgements?",
   },
-  {
-    type: "input",
-    name: "acknowledgements",
-    message: "Please write acknowledgements",
-    when: ({ checkAcknowledgements }) => {
-      if (checkAcknowledgements) {
-        return true;
-      } else {
-        return "No acknowledgements";
-      }
-    },
-  },
 ]);
 
 ////////////// Functions  //////////////////
@@ -336,13 +303,11 @@ ${generateBadge(license)}
 - [Usage](#usage)
 - [Demo](#demo)
 - [Built with](#built-with)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [License](#license)
 - [Authors](#authors)
 - [Questions](#questions)
-- [Acknowledgements](#acknowledgements)
 
 ## Description
 - ${description}
@@ -406,10 +371,6 @@ ${renderInputAsList(authors)}
 - ${contact}
 
     - ${email}
-
-## Acknowledgements
-
-${acknowledgements}
 
 `;
 
