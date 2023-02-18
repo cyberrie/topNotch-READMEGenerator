@@ -71,6 +71,22 @@ Open the following link to view App Demo:
 
 ## What I learned
 
+- I can now differentiate between JavaScript in the browser and Node.js environments and run simple JavaScript files from the command line using Node.js
+
+  - Understanding arrow functions and how they impact the this context
+
+  - Run Node.js applications from the command line with arguments
+
+  - Import and use the native fs module to read and write to the file system
+
+  - Initialize projects and install third-party modules like inquirer using npm
+
+  - Use dependencies and investigate the content of package.json
+
+  - Identify how and when to use the spread and rest operators
+
+  - Use destructuring assignment syntax to unpack values from arrays, or properties from objects, into unique variables
+
 ## Directions for future development
 
 Things for the future may include:
@@ -93,4 +109,6 @@ Things for the future may include:
 
 - GitHub - [cyberrie](https://github.com/cyberrie)
 
-## Acknowledgements 🌟
+## Acknowledgements
+
+Big thanks to my tutor Dane for anwering any burning questions I had during this project ✨
