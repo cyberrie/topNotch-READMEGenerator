@@ -341,8 +341,7 @@ ${generateBadge(license)}
 - [Contributing](#contributing)
 - [License](#license)
 - [Authors](#authors)
-- [GitHub](#github)
-- [Email](#email)
+- [Questions(#questions)
 - [Acknowledgements](#acknowledgements)
 
 ## Description
@@ -400,11 +399,9 @@ ${generateBadge(license)}
 
 ${renderInputAsList(authors)} 
 
-## GitHub 
+## Questions
 
-- [${github}](${githubURL})
-
-## Email
+- This is my GitHub profile where you will be able to contribute: [${github}](${githubURL})
 
 - ${contact}
 
